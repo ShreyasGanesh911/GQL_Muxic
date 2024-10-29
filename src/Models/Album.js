@@ -11,12 +11,12 @@ const albumSchema = new mongoose.Schema({
     },
     releaseDate:{
         type:Date,
-        required:[true,"Please provide release date"]
+        default:Date.now
     },
     artist:{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Artist",
-        required:true
+        required:[true,"Please provide artist name"]
     }
 
 })

@@ -9,7 +9,11 @@ const playlistSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'Track',
         
-    }]
+    }],
+    owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    }
 })
 
 const PlayList = mongoose.model("playList",playlistSchema)

@@ -6,13 +6,14 @@ const typeDefs = `
         name : String!
         profile: String!
         followers: Int!
+        playlists:[Playlist!]
     }
 
     type Track{
         id:ID!
         title:String!
         duration:Int!
-        artist:[Artist!]!
+        artist: Artist!
         picture:String!
         album : Album!
     }
@@ -20,7 +21,7 @@ const typeDefs = `
     type Album{
         id:ID!
         name:String!
-        artist:[Artist!]!
+        artist:Artist
         tracks:[Track!]!
         releaseDate:String!
         picture:String!
@@ -29,8 +30,8 @@ const typeDefs = `
     type Artist{
         id:ID!
         name:String!
-        albums:[Album!]!
-        tracks:[Track!]!
+        albums:[Album!]
+        tracks:[Track!]
         
     }
 
@@ -44,10 +45,11 @@ const typeDefs = `
 
     type  Query {
         getPlayList(id:ID!):[Track]
-        getArtist(id:ID!):Artist
+        getArtist(id:ID!):Artist!
+        getAllArtists:[Artist!]
         getUser(id:ID!):User
         getTrack(id:ID!):Track
-        getAlbum(id:ID!):[Track]!
+        getAlbum(id:ID!):Album
     }
 
 
