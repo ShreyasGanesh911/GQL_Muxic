@@ -9,7 +9,7 @@ const Mutations = `
         deleteTrack(id:ID!):Track
         deleteAlbum(id:ID!):Album
         deleteUser(id:ID!):User
-        removeTrackFromPlayList:Track
+        removeTrackFromPlayList(userId:ID!,songId:ID!):Track
 
         UpdateTrack(track:UpdateTrackInput):Track
         UpdateArtist(artist:ArtistInput!):Artist
