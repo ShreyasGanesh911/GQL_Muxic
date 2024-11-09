@@ -2,7 +2,6 @@ import express from 'express'
 import cors from 'cors'
 import { expressMiddleware } from '@apollo/server/express4'
 import connection from './db/index.js'
-//import userRouter from './route.js'
 import server from './server.js'
 const port = 8000
 const runServer = async()=>{
@@ -11,7 +10,6 @@ const runServer = async()=>{
     app.use(cors())
     await server.start()
     app.use('',expressMiddleware(server))
-    // app.use('/insert',userRouter)
     connection().then(()=>app.listen(port,()=>console.log("Listening to port ",port)))
 }
 
